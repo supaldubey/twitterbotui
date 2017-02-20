@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
+
+    <title>Cubestack! Organize your Tweets!</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+
+    <!-- Theme CSS -->
+    <link href="css/grayscale.min.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<script>window.twttr = (function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0],
+		t = window.twttr || {};
+	  if (d.getElementById(id)) return t;
+	  js = d.createElement(s);
+	  js.id = id;
+	  js.src = "https://platform.twitter.com/widgets.js";
+	  fjs.parentNode.insertBefore(js, fjs);
+
+	  t._e = [];
+	  t.ready = function(f) {
+		t._e.push(f);
+	  };
+
+	  return t;
+	}(document, "script", "twitter-wjs"));</script>
+
+</head>
+
+<span th:text="'Message: ' + ${message}"></span>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                    <i class="fa fa-play-circle"></i> <span class="light">Start</span> Organizing
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <A target="_blank"  href="#page-top"></A>
+                    </li>
+                    <li>
+                        <A target="_blank"  class="page-scroll" href="#about">How to?</A>
+                    </li> <!--
+                    <li>
+                        <A target="_blank"  class="page-scroll" href="#download">Download</A>
+                    </li> -->
+                    <li>
+                        <A target="_blank"  class="page-scroll" href="#contact">Contact</A>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Cubestack Bot</h1>
+                        <p class="intro-text">A free Twitter bot that helps you organize your tweets into Groups.
+                            <br />Created with ♡  by Team Cubestack.</p>
+                        <A target="_blank"  href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </A>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container content-section ">
+        <div class="row">
+            <div class="" >
+                <h2 align="center">How to Organize!</h2>
+                <p>Cubestack Bot (<A target="_blank"  Href="https://twitter.com/cubestackbot">@cubestackbot</A>) identifies certain hash tags and uses them to organize. The source for the Bot is open source, and you can use it for any personal and Non commercial purpose.
+                 No registration required, just tweet to us with #List Hash code and we will take care of rest.
+                Below are the Hash Tags it currently recognizes and responds, we will keep on adding new Hash updates.
+				<ul>
+					<li> List: Just reply to a Tweet and Quote it with #List adding <A target="_blank"  Href="https://twitter.com/cubestackbot">@cubestackbot</A> in the reply/mention, adds the quoted or replied tweet to list with the name. Example:  <A target="_blank"  href="https://twitter.com/cubestack/status/832110408626343941">This tweet</A> adds the replied tweet to a list Named Awesome. A list name cannot have spaces and will be ignored by the Bot. 
+					<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><A href="https://twitter.com/googlecloud">@googlecloud</A> <A href="https://twitter.com/cubestackbot">@cubestackbot</A>  <A href="https://twitter.com/hashtag/LiSt?src=hash">#LiSt</A> AWESOME</p>&mdash; Cube Stack (@cubestack) <A href="https://twitter.com/cubestack/status/832110408626343941">February 16, 2017</A></blockquote>
+					</li>
+					<li> Help: Will tweet the details of the Hash Tags identified.</li>
+					
+				</ul>
+				
+				<p>We are not case sensitive. Like any of replies to you by <A target="_blank"  Href="https://twitter.com/cubestackbot">@cubestackbot</A> and they will be deleted, in case you do not prefer history.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Download Grayscale</h2>
+                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
+                    <A target="_blank"  href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</A>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Contact Cubestack</h2>
+                <p>Feel free to email us to provide some feedback on our Bot, give us suggestions for new features, or to just say hello!</p>
+                <p><A target="_blank"  href="mailto:cubestacklabs@gmail.com">cubestacklabs@gmail.com</A>
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <A target="_blank"  href="https://twitter.com/cubestack" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></A>
+                    </li>
+                    <li>
+                        <A target="_blank"  href="https://github.com/supaldubey" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></A>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Cubestack 2017</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+      <!-- Theme JavaScript -->
+    <script src="js/grayscale.min.js"></script>
+
+</body>
+
+</html>
