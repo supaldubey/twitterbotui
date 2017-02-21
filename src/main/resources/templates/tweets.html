@@ -99,6 +99,11 @@
         </div>
     </section>
     
+    <section id="links" class ="container content-section">
+    	<div class="row">
+    		<A th:each="index : ${#numbers.sequence( 1, totalPages)}" th:href="${user.screenName}+'?listName='+${listItem}+'&page='+${index-1}" th:text="Page +' ' + ${index}" class="btn btn-default btn-lg">Page 1</A>
+    	</div>
+    </section>
     
 
     <!-- Contact Section -->
@@ -163,12 +168,10 @@
 
 <script th:inline="javascript">
 /*<![CDATA[*/
-
     var tweets = [[${tweets}]]
     for (i = 0; i < tweets.length; i++) {
         doSomething(tweets[i]);
     }  
-
 /*]]>*/
 </script>
 
