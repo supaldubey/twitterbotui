@@ -9,7 +9,7 @@
     <meta name="description" content=""></meta>
     <meta name="author" content=""></meta>
 
-    <title>Cubestack! Organize your Tweets!</title>
+    <title th:text=" Tweets +' '  + ${user.screenName}">Tweets! Welcome ${user.screenName}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -29,19 +29,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	
-	
-	  <!-- jQuery -->
-    <script src="vendor/jquery/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-      <!-- Theme JavaScript -->
-    <script src="js/grayscale.min.js"></script>
-    
 	<script>window.twttr = (function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0],
 		t = window.twttr || {};
@@ -58,21 +45,13 @@
 
 	  return t;
 	}(document, "script", "twitter-wjs"));</script>
+	
+	<!-- jQuery -->
+    <script src="vendor/jquery/jquery.js"></script>
 
 </head>
 
 
-
-<script th:inline="javascript">
-/*<![CDATA[*/
-
-    var msg = /*[[${message}]]*/ '';
-	if(msg != '' && msg != null && msg != 'null') {
-		alert(msg);
-	}    
-
-/*]]>*/
-</script>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
@@ -82,7 +61,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                    <i class="fa fa-play-circle"></i> <span class="light">Start</span> Organizing
+                    <i class="fa fa-play-circle"></i> <span class="light" th:text = "${user.screenName}">Start</span> 
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -93,14 +72,14 @@
                         <A target="_blank"  href="#page-top"></A>
                     </li>
                     <li>
-                        <A target="_blank"  class="page-scroll" href="#about">How to?</A>
+                        <A target="_blank"  class="page-scroll" href="#lists">Tweets</A>
                     </li> 
                     <li>
-                        <A target="_blank"  class="page-scroll" href="#download">Who we are</A>
-                    </li>  
-                    <li>
-                        <A target="_blank"  class="page-scroll" href="#contact">Contact</A>
+                        <A  class="page-scroll" th:href="${user.screenName}">Lists</A>
                     </li>
+	                    <li>
+                        <A target="_blank"  class="page-scroll" href="#contact">Reach Us</A>
+                    </li>  
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -108,60 +87,22 @@
         <!-- /.container -->
     </nav>
 
-    <!-- Intro Header -->
-    <header class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Cubestack Bot</h1>
-                        <p class="intro-text">A free Twitter bot that helps you organize your tweets into Groups.
-                            <br />Created with ♡  by Team Cubestack.</p>
-                        <A target="_blank"  href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </A>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="container content-section ">
+    
+	 <!-- Lists Section -->
+    <section id=lists class="container content-section">
         <div class="row">
-            <div class="" >
-                <h2 align="center">How to Organize!</h2>
-                <p>Cubestack Bot (<A target="_blank"  Href="https://twitter.com/cubestackbot">@cubestackbot</A>) identifies certain hash tags and uses them to organize. The source for the Bot is open source, and you can use it for any personal and Non commercial purpose.
-                 No registration required, just tweet to us with #List Hash code and we will take care of rest.
-                Below are the Hash Tags it currently recognizes and responds, we will keep on adding new Hash updates.
-				<ul>
-					<li> List: Just reply to a Tweet and Quote it with #List adding <A target="_blank"  Href="https://twitter.com/cubestackbot">@cubestackbot</A> in the reply/mention, adds the quoted or replied tweet to list with the name. Example:  <A target="_blank"  href="https://twitter.com/cubestack/status/832110408626343941">This tweet</A> adds the replied tweet to a list Named Awesome. A list name cannot have spaces and will be ignored by the Bot. 
-					<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><A href="https://twitter.com/googlecloud">@googlecloud</A> <A href="https://twitter.com/cubestackbot">@cubestackbot</A>  <A href="https://twitter.com/hashtag/LiSt?src=hash">#LiSt</A> AWESOME</p>&mdash; Cube Stack (@cubestack) <A href="https://twitter.com/cubestack/status/832110408626343941">February 16, 2017</A></blockquote>
-					</li>
-					<li> Help: Will tweet the details of the Hash Tags identified.</li>
-					
-				</ul>
-				
-				<p>We are not case sensitive. Like any of replies to you by <A target="_blank"  Href="https://twitter.com/cubestackbot">@cubestackbot</A> and they will be deleted, in case you do not prefer history.</p>
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2 style="display:inline">List </h2><h2 style="display:inline" th:text='${listName}'>Lists</h2>
+                <p>Below are the Tweets in the list via interacting with our Bot!</p>
+                <div id="tweets_div"></div>
             </div>
         </div>
     </section>
-
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Who we are</h2>
-                    <p>We are a young passionate community (if you can define community of two devs) on quest to do awesome stuff.</p>
-                    <p>We have done a lot and are continuously doing more, checkout our other products / open source stuff via our blog.</p>
-                    <A target="_blank"  href="http://cubestacklabs.com/" class="btn btn-default btn-lg">Visit Blog</A>
-                </div>
-            </div>
-        </div>
-    </section> 
+    
+    
 
     <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
+    <section id=contact class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Contact Cubestack</h2>
@@ -193,6 +134,43 @@
         </div>
     </footer>
 
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+      <!-- Theme JavaScript -->
+    <script src="js/grayscale.min.js"></script>
+
 </body>
+
+<script type="text/javascript">
+        
+        function doSomething(twt) {
+        	var myUrl = "https://publish.twitter.com/oembed?url=https://twitter.com/" + twt.tweetBy + "/status/" + twt.tweetId;
+        	 $.ajax({
+                 url: myUrl,
+                 dataType: "jsonp",
+                 success: function(data){
+                      $("#tweets_div").append(data.html);
+                      $("#tweets_div").append("<p>&nbsp;</p>");
+                 }
+             }); 
+        }
+    </script>	
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+    var tweets = [[${tweets}]]
+    for (i = 0; i < tweets.length; i++) {
+        doSomething(tweets[i]);
+    }  
+
+/*]]>*/
+</script>
+
 
 </html>
