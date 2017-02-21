@@ -101,7 +101,7 @@
     
     <section id="links" class ="container content-section">
     	<div class="row">
-    		<A th:each="index : ${#numbers.sequence( 1, totalPages)}" th:href="${user.screenName}+'?listName='+${listItem}+'&page='+${index-1}" th:text="Page +' ' + ${index}" class="btn btn-default btn-lg">Page 1</A>
+    		<A th:if="${totalPages > 0 }" th:each="index : ${#numbers.sequence( 1, totalPages)}" th:href="${user.screenName}+'?listName='+${listName}+'&page='+${index-1}" th:text="Page +' ' + ${index}" class="btn btn-default btn-lg">Page 1</A>
     	</div>
     </section>
     
