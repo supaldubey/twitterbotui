@@ -6,7 +6,7 @@ A bot for Twitter to organize your tweets and also would tweet you Unsplash phot
 
 ### Why? ###
 
-Check readme for twitterbot 
+Check readme for twitterbot [here] (https://github.com/supaldubey/twitterbot/blob/master/README.md)
 
 ### Why not Angular or React? ###
 When this was started I had very less time and also wanted to check things really fast. My system did not had node installed and was too lazy to do it. 
